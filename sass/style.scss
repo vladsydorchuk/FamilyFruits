@@ -7,7 +7,8 @@
 body {
     font-family: $font-accent;
     color: $font-color;
-    background-color: #424242
+    background-color: #424242;
+    margin: 5px;
 }
 
 a {
@@ -23,12 +24,11 @@ ul {
     &__grid {
         display: grid;
         grid-gap: 4px;
-        grid-template-columns: repeat(2, 1fr);
-
-        margin: 10px;
+        grid-template-columns: repeat(7, 1fr);
     }
 
     &__card {
+        justify-self: center;
         background-color: #fff;
         padding: 8px;
         position: relative;
@@ -36,8 +36,8 @@ ul {
         flex-direction: column;
         gap: 5px;
         border-radius: 15px;
-        width: auto;
-        max-width: 260px;
+        min-width: 120px;
+        width: 100%;
         transition: all .2s;
 
         .product-img-container {
@@ -60,21 +60,14 @@ ul {
             flex-direction: column;
             justify-content: space-between;
             align-items: stretch;
-            
-            &-top {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                align-items: start;
-                justify-content: space-between;
-                margin: 0 0 10px;
-            }
             padding: 5px;
         }
 
         .product-title {
             font-size: 16px;
             font-weight: 500;
+            width: 100%;
+            text-align: center;
         }
 
         .product-availiable {
@@ -116,3 +109,44 @@ ul {
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .products {
+        &__grid {
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .products {
+        &__grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .products {
+        &__grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .products {
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .products {
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+

@@ -6,6 +6,7 @@ body {
   font-family: "Rubik", sans-serif;
   color: #534746;
   background-color: #424242;
+  margin: 5px;
 }
 
 a {
@@ -20,10 +21,10 @@ ul {
 .products__grid {
   display: grid;
   grid-gap: 4px;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 10px;
+  grid-template-columns: repeat(7, 1fr);
 }
 .products__card {
+  justify-self: center;
   background-color: #fff;
   padding: 8px;
   position: relative;
@@ -31,8 +32,8 @@ ul {
   flex-direction: column;
   gap: 5px;
   border-radius: 15px;
-  width: auto;
-  max-width: 260px;
+  min-width: 120px;
+  width: 100%;
   transition: all 0.2s;
 }
 .products__card .product-img-container {
@@ -55,17 +56,11 @@ ul {
   align-items: stretch;
   padding: 5px;
 }
-.products__card .product-body-top {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: start;
-  justify-content: space-between;
-  margin: 0 0 10px;
-}
 .products__card .product-title {
   font-size: 16px;
   font-weight: 500;
+  width: 100%;
+  text-align: center;
 }
 .products__card .product-availiable {
   font-weight: 400;
@@ -93,4 +88,30 @@ ul {
   font-size: 16px;
   line-height: 24px;
   text-decoration: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .products__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .products__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media screen and (max-width: 800px) {
+  .products__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .products__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 400px) {
+  .products__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }/*# sourceMappingURL=style.css.map */
