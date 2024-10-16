@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  color: #534746;
+  background-color: #424242;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.products__grid {
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 10px;
+}
+.products__card {
+  background-color: #fff;
+  padding: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 15px;
+  width: auto;
+  max-width: 260px;
+  transition: all 0.2s;
+}
+.products__card .product-img-container {
+  width: 100%;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+}
+.products__card .product-img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.products__card .product-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 5px;
+}
+.products__card .product-body-top {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: start;
+  justify-content: space-between;
+  margin: 0 0 10px;
+}
+.products__card .product-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+.products__card .product-availiable {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  width: 90px;
+}
+.products__card .in-stock {
+  color: #4f7842;
+}
+.products__card .out-stock {
+  color: #784242;
+}
+.products__card .product-price-info,
+.products__card .product-min-weight {
+  font-size: 12px;
+  line-height: 1.3;
+  color: #a5a4a4;
+  font-weight: 300;
+}
+.products__card .product-price {
+  white-space: nowrap;
+  color: #534746;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */
