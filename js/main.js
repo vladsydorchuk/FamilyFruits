@@ -15,6 +15,7 @@ fruits
                     <p class="product-available ${x.available ? "in-stock" : "out-stock"}">
                         ${x.available ? "В наявності" : "Немає в наявності"}
                     </p>
+                    <p class="product-min-order">Мін. замовлення ${x.minOrder}</p>
                 </div>
             </div>
         `;

@@ -120,7 +120,7 @@ ul {
             font-weight: 500;
             width: 100%;
             text-align: left;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .product-available {
@@ -130,6 +130,7 @@ ul {
 
             text-align: left;
             width: 100%;
+            margin-bottom: 5px;
         }
 
         .in-stock {
@@ -141,9 +142,8 @@ ul {
         }
 
         .product-price-info,
-        .product-min-weight {
+        .product-min-order {
             font-size: 12px;
-            line-height: 1.3;
             color: #a5a4a4;
             font-weight: 300;
         }

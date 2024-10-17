@@ -4,8 +4,6 @@ const fruits = [
         code: 'f1',
         name: 'Апельсин',
         category: "fruits",
-        price: 119,
-        pricePer: '1 кг',
         minOrder: '0.5 кг',
         available: false
     },
@@ -14,8 +12,6 @@ const fruits = [
         code: 'f2',
         name: 'Гранат',
         category: "fruits",
-        price: 420,
-        pricePer: '1 кг',
         minOrder: '0.5 кг',
         available: true
     },
@@ -24,8 +20,6 @@ const fruits = [
         code: 'f3',
         name: 'Лайм',
         category: "fruits",
-        price: 330,
-        pricePer: '1 кг',
         minOrder: '0.3 кг',
         available: true
     },
@@ -34,8 +28,6 @@ const fruits = [
         code: 'f4',
         name: 'Грейпфрут',
         category: "fruits",
-        price: 105,
-        pricePer: '1 кг',
         minOrder: '0.3 кг',
         available: false
     },
@@ -44,8 +36,6 @@ const fruits = [
         code: 'f5',
         name: 'Лимон',
         category: "fruits",
-        price: 150,
-        pricePer: '1 кг',
         minOrder: '0.5 кг',
         available: true
     },
@@ -54,8 +44,6 @@ const fruits = [
         code: 'f6',
         name: 'Нектарин',
         category: "fruits",
-        price: 150,
-        pricePer: '1 кг',
         minOrder: '0.5 кг',
         available: true
     },
@@ -64,8 +52,6 @@ const fruits = [
         code: 'f7',
         name: 'Персик Україна',
         category: "fruits",
-        price: 160,
-        pricePer: '1 кг',
         minOrder: '0.5 кг',
         available: true
     },
@@ -74,8 +60,6 @@ const fruits = [
         code: 'f8',
         name: 'Авокадо Хасс',
         category: "fruits",
-        price: 81,
-        pricePer: '1 шт',
         minOrder: '1 шт',
         available: true
     },
@@ -84,8 +68,6 @@ const fruits = [
         code: 'f9',
         name: 'Груша Україна',
         category: "fruits",
-        price: 72,
-        pricePer: '1 кг',
         minOrder: '0.5 кг',
         available: true
     },
