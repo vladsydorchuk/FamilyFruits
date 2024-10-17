@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'Myra4F';
+    src: url("../fonts/Myra4FCapsLight.ttf") format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Myra4F';
+    src: url("../fonts/Myra4FCapsRegular.ttf") format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Myra4F';
+    src: url("../fonts/Myra4FCapsBold.ttf") format('truetype');
+    font-weight: 700;
+}
+
 @import 'vars';
 
 * {
@@ -30,24 +48,28 @@ ul {
 
     &__logo {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-
         width: 160px;
     }
 
     .logo {
         margin: 0 10px;
 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         &-img {
             height: 40px;
+            margin-right: 10px;
+            color: white;
         }
 
         &-text {
             color: #ffffff;
             font-size: 18px;
             font-weight: 500;
-
+            font-family: "Myra4F";
         }
     }
 }
@@ -109,7 +131,7 @@ ul {
             font-weight: 400;
             font-size: 12px;
             line-height: 14px;
-            
+
             text-align: left;
             width: 100%;
         }
@@ -179,4 +201,3 @@ ul {
         }
     }
 }
-
