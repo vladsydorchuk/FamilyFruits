@@ -7,7 +7,7 @@
 body {
     font-family: $font-accent;
     color: $font-color;
-    background-color: #424242;
+    background-color: #a5a5a5;
     margin: 5px;
 }
 
@@ -20,6 +20,40 @@ ul {
     list-style: none;
 }
 
+/* HEADER*/
+.header {
+
+    &__container {
+        height: 50px;
+        margin: 0 10px;
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 160px;
+    }
+
+    .logo {
+        margin: 0 10px;
+
+        &-img {
+            height: 40px;
+        }
+
+        &-text {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 500;
+
+        }
+    }
+}
+
+
+/* PRODUCTS */
 .products {
     &__grid {
         display: grid;
@@ -67,19 +101,17 @@ ul {
             font-size: 16px;
             font-weight: 500;
             width: 100%;
-            text-align: center;
+            text-align: left;
+            margin-bottom: 5px;
         }
 
-        .product-availiable {
+        .product-available {
             font-weight: 400;
             font-size: 12px;
             line-height: 14px;
             
-            text-align: right;
-            width: 90px;
-            
-            
-            
+            text-align: left;
+            width: 100%;
         }
 
         .in-stock {
@@ -97,8 +129,6 @@ ul {
             color: #a5a4a4;
             font-weight: 300;
         }
-
-        
 
         .product-price {
             white-space: nowrap;

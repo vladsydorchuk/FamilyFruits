@@ -12,6 +12,9 @@ fruits
                 </div>
                 <div class="product-body">
                     <p class="product-title">${x.name}</p>
+                    <p class="product-available ${x.available ? "in-stock" : "out-stock"}">
+                        ${x.available ? "В наявності" : "Немає в наявності"}
+                    </p>
                 </div>
             </div>
         `;

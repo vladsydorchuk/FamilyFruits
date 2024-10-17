@@ -7,7 +7,7 @@ const fruits = [
         price: 119,
         pricePer: '1 кг',
         minOrder: '0.5 кг',
-        available: true
+        available: false
     },
     {
         id: 2,
@@ -37,7 +37,7 @@ const fruits = [
         price: 105,
         pricePer: '1 кг',
         minOrder: '0.3 кг',
-        available: true
+        available: false
     },
     {
         id: 5,
@@ -72,7 +72,7 @@ const fruits = [
     {
         id: 8,
         code: 'f8',
-        name: 'Авокадо Хасс 16',
+        name: 'Авокадо Хасс',
         category: "fruits",
         price: 81,
         pricePer: '1 шт',
