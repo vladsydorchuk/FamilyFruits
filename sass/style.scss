@@ -48,16 +48,12 @@ ul {
 
     &__logo {
         display: flex;
-        align-items: center;
+        align-items: end;
         width: 160px;
     }
 
     .logo {
         margin: 0 10px;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
         &-img {
             height: 40px;
