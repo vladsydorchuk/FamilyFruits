@@ -1,4 +1,4 @@
-const fruits = [
+const fruitsData = [
     {
         id: 1,
         code: 'f1',
