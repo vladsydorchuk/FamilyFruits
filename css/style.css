@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Myra4F";
   src: url("../fonts/Myra4FCapsLight.ttf") format("truetype");
@@ -37,6 +38,77 @@ ul {
 .header__container {
   height: 50px;
   margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Гамбургер иконка */
+  /* Меняем гамбургер иконку, когда меню открыто */
+  /* Меню, которое будет появляться */
+}
+.header__container .menu-btn {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.header__container .menu-btn .bar {
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(41, 41, 41);
+  transition: all 0.3s ease-in-out;
+}
+.header__container .menu-btn .bar:nth-of-type(2) {
+  top: calc(50% - 9px);
+}
+.header__container .menu-btn .bar:nth-of-type(3) {
+  top: calc(50% + 9px);
+}
+.header__container .menu-btn.active .bar:nth-of-type(1) {
+  display: none;
+}
+.header__container .menu-btn.active .bar:nth-of-type(2) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(45deg);
+}
+.header__container .menu-btn.active .bar:nth-of-type(3) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(-45deg);
+}
+.header__container .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background: #fffcf0;
+  transform: translateX(100%);
+  transition: transform 0.5s;
+  z-index: 1;
+}
+.header__container .nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+.header__container .nav__list_item {
+  font-size: 18px;
+  font-family: "Myra4F";
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.header__container .nav.active {
+  transform: translateX(0);
+}
+.header__container .nav .nav__list_item {
+  list-style-type: none;
 }
 .header__logo {
   display: flex;
