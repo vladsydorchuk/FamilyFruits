@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
@@ -36,6 +36,7 @@
                       <li class="nav__list_item"><a id="green-btn" class="nav__link" href="#">Зелень</a></li>
                       <li class="nav__list_item"><a id="nuts-btn" class="nav__link" href="#">Горіхи</a></li>
                       <li class="nav__list_item"><a id="honey-btn" class="nav__link" href="#">Мед</a></li>
+                      <li class="nav__list_item"><a id="basket-btn" class="nav__link" href="#">Корзина</a></li>
                     </ul>
                     </nav>
                 </div>
@@ -43,31 +44,56 @@
         </div>
     </header>
 
+    <div class="basket">
+        <div class="basket__container hide">
+            <div class="basket__header">
+                Список продуктів
+            </div>
+            <div class="basket__products">
+                <textarea class="basket__products-list">
+Banana - 1kg
+Frunits - 0,4kg
+                </textarea>
+            </div>
+        </div>
+    </div>
+
     <div class="products">
         <div id="products__list" class="products__grid">
             <!-- <div class="products__card">
-                <div class="product-img-container" style="background-image: url('img/fruits/f1.jpg');">
+                <div class="product-img-container" style="background-image: url('img/fruits/f8.jpg');">
                 </div>
                 <div class="product-body">
-                    <div class="product-body-top">
-                        <p class="product-title">Апельсин</p>
-                        <p class="product-availiable in-stock">В наявності</p>
-                    </div>
-                    <div class="product-body-bottom">
-                        <p class="product-price">213.00 ₴</p>
-                        <p class="product-price-info">Ціна за 1кг</p>
-                        <p class="product-min-weight">мін. замовлення 0.5кг</p>
-                    </div>
+                    <p class="product-title">Авокадо Хасс</p>
+                    <p class="product-available in-stock">
+                        В наявності
+                    </p>
+                    <p class="product-min-order">Мін. замовлення 1 шт</p>
                 </div>
             </div> -->
         </div>
     </div>
 
+    <div class="product__view hide">
+        <!-- <div class="product__view-container">
+            <div class="product__view-img" style="background-image: url('img/fruits/f1.jpg');"></div>
+            <p class="product__view-title product-title">Апельсин</p>
+            <p class="product__view-min-weight">Мінімальне замовлення 0.3 кг</p>
+            <p class="product__view-available red-text">Немає в наявності</p>
+            <input class="product__view-weight-value" type="number" placeholder="0.3">
+            <div class="product__view-buttons">
+                <button id="product__view-addBtn">Додати</button>
+                <button id="product__view-closeBtn">Закрити</button>
+            </div>
+        </div> -->
+    </div>
+
+    <button id="basketBtn"></button>
+
 
     <script src="js/products/fruits.js"></script>
     <script src="js/products/vegetables.js"></script>
     <script src="js/main.js"></script>
-
 </body>
 
 </html>
