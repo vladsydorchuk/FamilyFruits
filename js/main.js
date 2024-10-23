@@ -39,7 +39,7 @@ let basketBtn = document.querySelector('#basketBtn')
 
 let productViewCard = document.querySelector('.product__view');
 
-fillProductList(sortedFruits, false);
+// fillProductList(sortedFruits, false);
 
 fruitsBtn.addEventListener('click', function(){
     fillProductList(sortedFruits, false);
@@ -135,14 +135,13 @@ function productClick(){
             <p class="product__view-available ${x.available ? "hide" : "red-text"}">
                 ${x.available ? "" : "Немає в наявності"}
             </p>
-            <input ${x.available ? "" : "disabled"} class="product__view-weight-value" type="number" min="${x.minOrder.split(' ')[0]}" placeholder="Введіть кількість...">
+            <input class="product__view-weight-value ${x.available ? "" : "hide"}" type="number" min="${x.minOrder.split(' ')[0]}" placeholder="Введіть кількість...">
             <div class="product__view-buttons">
                 <button id="product__view-addBtn" 
                     onclick="addProductToBasketBtn()" 
-                    style="visibility: ${x.available ? "visible" : "hidden"};">
-                Додати
+                    class="${x.available ? "" : "hide"}">
                 </button>
-                <button id="product__view-closeBtn" onclick="closeProductViewPopup()">Закрити</button>
+                <button id="product__view-closeBtn" onclick="closeProductViewPopup()"></button>
             </div>
         </div>
     `;
