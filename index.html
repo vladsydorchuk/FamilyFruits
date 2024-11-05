@@ -34,9 +34,10 @@
                       <li class="nav__list_item"><a id="fruits-btn" class="nav__link" href="#">Фрукти</a></li>
                       <li class="nav__list_item"><a id="vegetables-btn" class="nav__link" href="#">Овочі</a></li>
                       <li class="nav__list_item"><a id="green-btn" class="nav__link" href="#">Зелень</a></li>
-                      <li class="nav__list_item"><a id="nuts-btn" class="nav__link" href="#">Горіхи</a></li>
-                      <li class="nav__list_item"><a id="honey-btn" class="nav__link" href="#">Мед</a></li>
-                      <li class="nav__list_item"><a id="basket-btn" class="nav__link" href="#">Корзина</a></li>
+                      <li class="nav__list_item"><a id="nuts-btn" class="nav__link" href="#">Горіхи | Сухофрукти</a></li>
+                      <li class="nav__list_item"><a id="grocery-btn" class="nav__link" href="#">Бакалія</a></li>
+                      <li class="nav__list_item"><a id="sweets-btn" class="nav__link" href="#">Солодощі</a></li>
+                      <li class="nav__list_item"><a id="contacts-btn" class="nav__link" href="#">Контакти</a></li>
                     </ul>
                     </nav>
                 </div>
@@ -44,22 +45,75 @@
         </div>
     </header>
 
+    <div class="hello">
+        <div class="hello__container">
+            <p class="hello__main-msg">Привіт, <span>Fruits Family</span> на зв'язку!</p>
+
+            <div>
+                <p class="hello__main-hint">Наш сімейний магазин пропонує якісні:</p>
+                <ul class="hello__main-hint-items">
+                    <li>фрукти 🍓</li>
+                    <li>овочі 🥕</li>
+                    <li>соління 🥫</li>
+                    <li>горіхи🥜</li>
+                    <li>сухофрукти 🍡</li>
+                    <li>мед🍯</li>
+                    <li>зелень🥬</li>
+                    <li>справжній гранатовий сік без барвників, цукру та консервантів 😻🥤</li>
+                    <li>та інші товари</li>
+                </ul>
+            </div>
+
+            <div class="social">
+                <div class="social__container">
+                    <a class="social-btn social-viber" href="https://invite.viber.com/?g2=AQBfuHzBsElAklO3g4VTIclAdv1YyURqtZicakrfXrsiR2Lu21cG77IFiYb6xakS" target="_blank">
+                        <img class="social-btn-img" src="img/social/viber.png">
+                        Viber
+                    </a>
+                </div>
+            </div>
+
+            <p class="hello__main-location">Магазин розташований біля зупинки Райдужний (маршрутка 578, автобус 70)🚌</p>
+
+            <!-- <div>
+                <p class="hello__how-it-works">Онлайн замовлення</p>
+                <ol>
+                    <li>У кожної позиції є мінімальна вага/кількість для онлайн замовлення</li>
+                    <li>Додавайте до корзини ті товари, що бажаєте замовити</li>
+                    <li>Як тільки додали все, що необхідно - перейдіть до кошика та дотримуйтесь інструкції, що буде там вказана</li>
+                    <li>Оплатити замовлення можна карткою або готівкою при отриманні</li>
+                </ol>
+            </div> -->
+        </div>
+    </div>
+
     <div class="basket">
         <div class="basket__container hide">
             <div class="basket__header">
-                Список продуктів
+                Замовлення
             </div>
-            <div class="basket__products">
-                <textarea class="basket__products-list">
-Banana - 1kg
-Frunits - 0,4kg
-                </textarea>
+            <div class="basket__products-list">
+                <!-- <div class="basket__products-list-header">
+                    <span class="item-name-header">Назва</span>
+                    <span class="item-weight-header">Вага</span>
+                    <span class="item-weight-header">Мін.</span>
+                </div> -->
+                <!-- <div class="basket__products-list-item">
+                    <span class="item-name">Banana</span>
+                    <input class="item-weight" type="number">
+                </div>
+                <div class="basket__products-list-item">
+                    <span class="item-name">Apple</span>
+                    <input class="item-weight" type="number">
+                </div> -->
             </div>
+            <button id="basketCopyBtn">Копіювати замовлення</button>
+            <button id="basketClearBtn">Очистити кошик</button>
         </div>
     </div>
 
     <div class="products">
-        <div id="products__list" class="products__grid">
+        <div class="products__container products__grid hide">
             <!-- <div class="products__card">
                 <div class="product-img-container" style="background-image: url('img/fruits/f8.jpg');">
                 </div>
@@ -93,6 +147,7 @@ Frunits - 0,4kg
 
     <script src="js/products/fruits.js"></script>
     <script src="js/products/vegetables.js"></script>
+    <script src="js/products/groceries.js"></script>
     <script src="js/main.js"></script>
 </body>
 

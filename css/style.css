@@ -21,17 +21,13 @@
 body {
   font-family: "Rubik", sans-serif;
   color: #534746;
-  background-color: #a5a5a5;
+  background-color: #5eb48c;
   margin: 5px;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-}
-
-ul {
-  list-style: none;
 }
 
 /* HEADER*/
@@ -131,6 +127,74 @@ ul {
   font-size: 18px;
   font-weight: 500;
   font-family: "Myra4F";
+}
+
+/* HELLO */
+.hello__container {
+  margin: 20px 50px;
+}
+.hello__main-msg {
+  font-size: 24px;
+  margin-bottom: 26px;
+  text-align: center;
+}
+.hello__main-msg span {
+  font-family: "Myra4F";
+  font-weight: 500;
+  color: #c6ff7c;
+}
+.hello__main-hint {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+.hello__main-hint-items {
+  margin-bottom: 20px;
+}
+.hello__main-location {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #c6ff7c;
+  padding: 5px;
+  border-radius: 10px;
+  line-height: 22px;
+}
+.hello__how-it-works {
+  font-size: 18px;
+  font-family: "Myra4F";
+  font-weight: 500;
+  color: #c6ff7c;
+  margin-bottom: 10px;
+}
+.hello li {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-bottom: 5px;
+  margin-left: 25px;
+  color: #ffffff;
+}
+.hello .social__container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.hello .social__container .social-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #8cecbf;
+  border-radius: 10px;
+  padding: 10px 16px;
+  border: 2px solid #c6ff7c;
+}
+.hello .social__container .social-btn-img {
+  height: 30px;
+  margin-right: 10px;
 }
 
 /* PRODUCTS */
@@ -303,13 +367,30 @@ ul {
 .basket__header {
   color: #fff;
   font-family: "Myra4F";
-  font-size: 14px;
+  font-size: 18px;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 .basket__products-list {
   width: 100%;
-  height: 200px;
+  margin-bottom: 20px;
+  display: grid;
+  gap: 10px;
+}
+.basket__products-list-header, .basket__products-list-item {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 4fr 2fr 1fr;
+}
+.basket__products-list-header {
+  border-bottom: 2px solid black;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.basket__products-list-item input {
+  width: 100%;
+  text-align: center;
 }
 
 #basketBtn {

@@ -1,7 +1,8 @@
-const productsTable = document.querySelector("#products__list");
+const selectedProductKey = 'selectedProducts';
 
 let sortedFruits = fruitsData.sort((a, b) => a.name.localeCompare(b.name));
 let sortedVegetables = vegetablesData.sort((a, b) => a.name.localeCompare(b.name));
+let sortedGroceries = groceriesData.sort((a, b) => a.name.localeCompare(b.name));
 
 // let mainProductList = sortedFruits
 //     .concat(sortedVegetables)
@@ -16,12 +17,18 @@ let sortedVegetables = vegetablesData.sort((a, b) => a.name.localeCompare(b.name
 
 
 
-// localStorage['selectedProducts'] = JSON.stringify(sortedFruits);
+// Containers
+const helloContainer = document.querySelector('.hello__container');
+const productContainer = document.querySelector(".products__container");
+const basketContainer = document.querySelector(".basket__container");
 
-// let d = JSON.parse(localStorage['selectedProducts']);
+const containers = [
+    helloContainer,
+    productContainer,
+    basketContainer
+];
 
-// console.log(d);
-
+const logoBtn = document.querySelector('.header__logo');
 
 // MENU
 let menuBtn = document.querySelector('.menu-btn');
@@ -32,21 +39,22 @@ let fruitsBtn = document.querySelector('#fruits-btn')
 let vegetables = document.querySelector('#vegetables-btn')
 let green = document.querySelector('#green-btn')
 let nuts = document.querySelector('#nuts-btn')
-let honey = document.querySelector('#honey-btn')
+let grocery = document.querySelector('#grocery-btn')
+let sweets = document.querySelector('#sweets-btn')
+let contacts = document.querySelector('#contacts-btn')
 
-let basketView = document.querySelector('.basket__container');
 let basketBtn = document.querySelector('#basketBtn')
+let basketCopyBtn = document.querySelector('#basketCopyBtn')
+let basketClearBtn = document.querySelector('#basketClearBtn')
 
 let productViewCard = document.querySelector('.product__view');
 
-// fillProductList(sortedFruits, false);
-
 fruitsBtn.addEventListener('click', function(){
-    fillProductList(sortedFruits, false);
+    fillProductList(sortedFruits);
 });
 
 vegetables.addEventListener('click', function(){
-    fillProductList(sortedVegetables, false);
+    fillProductList(sortedVegetables);
 });
 
 green.addEventListener('click', function(){
@@ -57,8 +65,16 @@ nuts.addEventListener('click', function(){
     console.log('nuts');
 });
 
-honey.addEventListener('click', function(){
-    console.log('honey');
+grocery.addEventListener('click', function(){
+    fillProductList(sortedGroceries);
+});
+
+sweets.addEventListener('click', function(){
+    console.log('sweets');
+});
+
+contacts.addEventListener('click', function(){
+    console.log('contacts');
 });
 
 menuBtn.addEventListener('click', function(){
@@ -67,8 +83,60 @@ menuBtn.addEventListener('click', function(){
 })
 
 basketBtn.addEventListener('click', function() {
-    fillProductList([], true); // Clear list
-    basketView.classList.toggle('hide');
+    showContainer('basket__container');
+
+    let basketProductList = document.querySelector('.basket__products-list');
+
+    basketProductList.innerHTML = `
+        <div class="basket__products-list-header">
+            <span class="item-name-header">Назва</span>
+            <span class="item-weight-header">Вага</span>
+            <span class="item-weight-header"></span>
+        </div>
+    `;
+    
+    if (localStorage[selectedProductKey] === undefined){
+        console.log('empty list');
+        return;
+    }
+
+    let products = JSON.parse('[' + localStorage[selectedProductKey] + ']');
+
+    products.forEach(x => {
+        let item = `
+            <div class="basket__products-list-item">
+                <span class="item-name">${x.name}</span>
+                <input class="item-weight" type="number" value=${x.weight}>
+                <span class="item-min">X</span>
+            </div>
+        `;
+
+        basketProductList.insertAdjacentHTML("beforeend", item);
+    });
+});
+
+basketCopyBtn.addEventListener('click', function() {
+    // localStorage['selectedProducts'] += JSON.stringify(sortedFruits);
+
+    let basketProductList = document.querySelectorAll('.basket__products-list-item');
+
+    let order = '';
+
+    basketProductList.forEach(element => {
+        let productName = element.querySelector('.item-name');
+        let productWeight = element.querySelector('.item-weight');
+
+        order += productName.innerHTML + ' ' + productWeight.value + ';\n'
+    });
+
+    console.log(order);
+    // console.log(localStorage['selectedProducts']);
+});
+
+basketClearBtn.addEventListener('click', function() {
+    localStorage.removeItem('selectedProducts');
+
+    console.log(localStorage['selectedProducts']);
 });
 
 menuItem.forEach (function(menuItem) {
@@ -78,17 +146,10 @@ menuItem.forEach (function(menuItem) {
   })
 })
 
-
-
-function fillProductList(items, hideList) {
-    if (hideList){
-        productsTable.classList.add('hide');
-    } else {
-        productsTable.classList.remove('hide');
-        basketView.classList.add('hide');
-    }
+function fillProductList(items) {
+    showContainer('products__container');
     
-    productsTable.innerHTML = '';
+    productContainer.innerHTML = '';
 
     items
         .forEach(x => {
@@ -99,56 +160,58 @@ function fillProductList(items, hideList) {
                     <div class="product-body">
                         <p class="product-title">${x.name}</p>
                         <p class="product-available ${x.available ? "in-stock" : "out-stock"}">
-                            ${x.available ? "В наявності" : "Немає в наявності"}
+                            ${x.available ? "В наявності" : "Під замовлення"}
                         </p>
                         <p class="product-min-order">Мін. замовлення ${x.minOrder}</p>
                     </div>
                 </div>
             `;
 
-        productsTable.insertAdjacentHTML("beforeend", item);
+        productContainer.insertAdjacentHTML("beforeend", item);
     });
 }
 
 function productClick(){ 
-    let clickedElement = this.event.currentTarget;
-    let rootElement = clickedElement.closest('.products__card');
+    // let clickedElement = this.event.currentTarget;
+    // let rootElement = clickedElement.closest('.products__card');
 
-    let productCategory = rootElement.getAttribute("productCategory");
-    let productId = rootElement.getAttribute("productId");
+    // let productCategory = rootElement.getAttribute("productCategory");
+    // let productId = rootElement.getAttribute("productId");
 
-    let x = null;
-    switch (productCategory) {
-        case 'fruits':
-            x = fruitsData.find(x => x.id == productId);
-            break;
-        case 'vegetables':
-            x = vegetablesData.find(x => x.id == productId);
-            break;
-    }
+    // let x = null;
+    // switch (productCategory) {
+    //     case 'fruits':
+    //         x = fruitsData.find(x => x.id == productId);
+    //         break;
+    //     case 'vegetables':
+    //         x = vegetablesData.find(x => x.id == productId);
+    //         break;
+    //     case 'grocery':
+    //         x = groceriesData.find(x => x.id == productId);
+    //         break;
+    // }
 
-    let itemHtml = `
-        <div class="product__view-container">
-            <div class="product__view-img" style="background-image: url('img/${x.category}/${x.code}.jpg');"></div>
-            <p class="product__view-title product-title">${x.name}</p>
-            <p class="product__view-min-weight">Мінімальне замовлення ${x.minOrder}</p>
-            <p class="product__view-available ${x.available ? "hide" : "red-text"}">
-                ${x.available ? "" : "Немає в наявності"}
-            </p>
-            <input class="product__view-weight-value ${x.available ? "" : "hide"}" type="number" min="${x.minOrder.split(' ')[0]}" placeholder="Введіть кількість...">
-            <div class="product__view-buttons">
-                <button id="product__view-addBtn" 
-                    onclick="addProductToBasketBtn()" 
-                    class="${x.available ? "" : "hide"}">
-                </button>
-                <button id="product__view-closeBtn" onclick="closeProductViewPopup()"></button>
-            </div>
-        </div>
-    `;
+    // let itemHtml = `
+    //     <div class="product__view-container">
+    //         <div class="product__view-img" style="background-image: url('img/${x.category}/${x.code}.jpg');"></div>
+    //         <p class="product__view-title">${x.name}</p>
+    //         <p class="product__view-min-weight">Мін. замовлення ${x.minOrder}</p>
+    //         <p class="product__view-available ${x.available ? "hide" : "red-text"}">
+    //             ${x.available ? "" : "Під замовлення"}
+    //         </p>
+    //         <input class="product__view-weight-value" type="number" min="${x.minOrder.split(' ')[0]}" placeholder="Введіть кількість...">
+    //         <div class="product__view-buttons">
+    //             <button id="product__view-addBtn" 
+    //                 onclick="addProductToBasketBtn()">
+    //             </button>
+    //             <button id="product__view-closeBtn" onclick="closeProductViewPopup()"></button>
+    //         </div>
+    //     </div>
+    // `;
 
-    productViewCard.innerHTML = '';
-    productViewCard.insertAdjacentHTML("beforeend", itemHtml);
-    productViewCard.classList.toggle('hide');
+    // productViewCard.innerHTML = '';
+    // productViewCard.insertAdjacentHTML("beforeend", itemHtml);
+    // productViewCard.classList.toggle('hide');
 }
 
 function addProductToBasketBtn() {
@@ -165,12 +228,38 @@ function addProductToBasketBtn() {
         return;
     }
 
-    console.log(weight.value >= minWeight ? 'ok' : '!ok');
+    let productName = rootElement.querySelector('.product__view-title');
 
-    console.log('product added');
+    let p = {
+        name: productName.innerHTML,
+        weight: weight.value
+    };
+
+    if (localStorage[selectedProductKey] === undefined){
+        localStorage[selectedProductKey] = JSON.stringify(p);
+    } else {
+        localStorage[selectedProductKey] += ', ' + JSON.stringify(p);
+    }
+
     productViewCard.classList.toggle('hide');
 }
 
 function closeProductViewPopup() {
     productViewCard.classList.toggle('hide');
 }
+
+function showContainer(containerKey){
+    containers.forEach(x => {
+        if (x.classList.contains(containerKey)) {
+            x.classList.remove('hide');
+        } else if (!x.classList.contains('hide')) {
+            x.classList.add('hide');
+        }
+    });
+}
+
+logoBtn.addEventListener('click', function() {
+    showContainer('hello__container');
+});
+
+// fillProductList(sortedGroceries);
